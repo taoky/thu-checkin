@@ -175,3 +175,4 @@ if __name__ == "__main__":
     s = make_session()
     login(s)
     assert checkin(s)
+    print(f"Success with your residence {juzhudi}")

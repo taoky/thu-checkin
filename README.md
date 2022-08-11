@@ -1,12 +1,10 @@
 # 清华大学校外手动健康打卡脚本
 
-（尚未完成）
-
 修改自[基于 Systemd timer 的自动打卡脚本](https://github.com/iBug/thu-checkin)，为状态为「**不在校**」的同学设计，用于在保证电子身份服务系统用户名与密码不明文存储的前提下**手动**打卡，并尽可能与 Linux 桌面环境集成。
 
 **仅含「每日打卡」功能。**
 
-**仅在 Arch Linux + GNOME on Wayland 上测试。**
+**仅在 Arch Linux + GNOME on Wayland + 1Password 上测试**，不过其他的桌面环境应该都是能用的。
 
 ## 环境要求
 
@@ -21,7 +19,7 @@
   - pytesseract（`pacman -S python-pytesseract` 或从 PyPI 安装）
 - 秘密存储后端
   - keyring（`pacman -S python-keyring` 或从 PyPI 安装）
-  - 1Password CLI（使用此后端需要保证到 my.1password.com 的网络畅通。如果你使用 1Password 存储电子身份服务系统密码，参考官方帮助页面 <https://developer.1password.com/docs/cli> 配置 CLI）
+  - 1Password CLI（使用此后端需要保证到 my.1password.com 的网络畅通。如果你使用 1Password 存储电子身份服务系统密码，参考官方帮助页面 <https://developer.1password.com/docs/cli> 配置 CLI。特别地，请打开 1Password 客户端的 Biometric unlock 功能，以方便使用）
 
 ## 使用方法
 
@@ -39,7 +37,7 @@
     SCHOOL_ABBR=学校的英文缩写，应该是 thu 吧
     USER_AGENT=浏览器的 UA，可选
     ```
-- 在你想打卡的时候，执行 `./thu-checkin.py` 即可。首次执行时脚本会询问用户名与密码，并存储于 GNOME keyring（或者其他 secret 后端）中。
+- 在你想打卡的时候，执行 `./thu-checkin.py` 即可。如果选择 keyring 后端，首次执行时脚本会询问用户名与密码，并存储于 GNOME keyring（或者其他 secret 后端，如 KDE Wallet）中。
 
 ## 许可
 
