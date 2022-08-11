@@ -1,4 +1,5 @@
 [thu-checkin]
+SECRET_BACKEND=keyring
 RESIDENCE=北京市北京市海淀区
 EMERGENCY_NAME=龚旗煌
 EMERGENCY_RELATION=隔壁的校长

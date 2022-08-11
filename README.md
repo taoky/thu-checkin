@@ -2,7 +2,7 @@
 
 （尚未完成）
 
-修改自[基于 Systemd timer 的自动打卡脚本](https://github.com/iBug/thu-checkin)，为状态为「**不在校**」的同学设计，用于在保证 CAS 用户名与密码不明文存储的前提下**手动**打卡，并尽可能与 GNOME 集成。
+修改自[基于 Systemd timer 的自动打卡脚本](https://github.com/iBug/thu-checkin)，为状态为「**不在校**」的同学设计，用于在保证电子身份服务系统用户名与密码不明文存储的前提下**手动**打卡，并尽可能与 Linux 桌面环境集成。
 
 **仅含「每日打卡」功能。**
 
@@ -19,8 +19,9 @@
   - requests（可以直接安装系统软件源提供的 `python-requests` (Arch Linux) `python3-requests` (Ubuntu/Debian) 包，也可以从 PyPI 安装，没有区别）
   - pillow（`pacman -S python-pillow` 或 `apt install python3-pil` 或 `pip3 install pillow`）
   - pytesseract（`pacman -S python-pytesseract` 或从 PyPI 安装）
-- GNOME 桌面环境集成
-  - 
+- 秘密存储后端
+  - keyring（`pacman -S python-keyring` 或从 PyPI 安装）
+  - 1Password CLI（使用此后端需要保证到 my.1password.com 的网络畅通。如果你使用 1Password 存储电子身份服务系统密码，参考官方帮助页面 <https://developer.1password.com/docs/cli> 配置 CLI）
 
 ## 使用方法
 
@@ -29,6 +30,8 @@
 
     ```ini
     [thu-checkin]
+    SECRET_BACKEND=使用 keyring 还是 1Password CLI "op"，对应值分别为 keyring 和 onepwd
+    ONEPWD_NAME=如果使用 1Password CLI，电子身份服务系统密码对应的项名
     JUZHUDI=你所在的城市
     EMERGENCY_NAME=你的紧急联系人
     EMERGENCY_RELATION=紧急联系人和你的关系
