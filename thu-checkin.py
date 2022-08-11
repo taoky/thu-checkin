@@ -170,9 +170,23 @@ if __name__ == "__main__":
     parser.add_argument("--update-password", action='store_true', help="Update password stored in keyring")
     parser.add_argument("--clear-password", action='store_true', help="Clear password stored in keyring")
     parser.add_argument("--manual-confirmation", action='store_true', help="Manually confirm payload before sending")
+    parser.add_argument("--notify", action='store_true', help="Send notification after checkin")
     args = parser.parse_args()
-    username, password = get_auth_data()
-    s = make_session()
-    login(s)
-    assert checkin(s)
-    print(f"Success with your residence {juzhudi}")
+    if args.notify:
+        import notify2
+        notify2.init("thu-checkin")
+    try:
+        username, password = get_auth_data()
+        s = make_session()
+        login(s)
+        assert checkin(s)
+        print(f"Success with your residence {juzhudi}")
+        if args.notify:
+            noti = notify2.Notification("thu-checkin", f"打卡成功。居住地 = {juzhudi}")
+            noti.show()
+    except Exception as e:
+        if args.notify:
+            noti = notify2.Notification("thu-checkin", f"发生异常导致打卡失败：{str(e)}")
+            noti.show()
+        raise e
+

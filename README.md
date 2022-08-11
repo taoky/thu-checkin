@@ -20,6 +20,8 @@
 - 秘密存储后端
   - keyring（`pacman -S python-keyring` 或从 PyPI 安装）
   - 1Password CLI（使用此后端需要保证到 my.1password.com 的网络畅通。如果你使用 1Password 存储电子身份服务系统密码，参考官方帮助页面 <https://developer.1password.com/docs/cli> 配置 CLI。特别地，请打开 1Password 客户端的 Biometric unlock 功能，以方便使用）
+- 基于 DBus 的桌面通知（可选）
+  - notify2（`pacman -S python-notify2` 或从 PyPI 安装）
 
 ## 使用方法
 
@@ -38,6 +40,7 @@
     USER_AGENT=浏览器的 UA，可选
     ```
 - 在你想打卡的时候，执行 `./thu-checkin.py` 即可。如果选择 keyring 后端，首次执行时脚本会询问用户名与密码，并存储于 GNOME keyring（或者其他 secret 后端，如 KDE Wallet）中。
+  - 如果需要桌面通知，运行时添加 `--notify` 参数。
 
 ## 许可
 
