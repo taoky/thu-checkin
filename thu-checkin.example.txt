@@ -1,15 +1,7 @@
 [thu-checkin]
-USERNAME=PB00114514
-PASSWORD=password
-REASON=3
-RETURN_COLLEGE=东校区 西校区 南校区 北校区 中校区 高新校区 先研院 国金院
-RETURN_REASON=今天天气晴朗
-DORM_BUILDING=#114
-DORM=514
-
-# 14-day Big Data Trace Card
-IMAGE_1=images/1.jpg
-# An Kang code
-IMAGE_2=images/2.jpg
-# Weekly nucleic acid test result
-IMAGE_3=images/3.jpg
+RESIDENCE=北京市北京市海淀区
+EMERGENCY_NAME=龚旗煌
+EMERGENCY_RELATION=隔壁的校长
+EMERGENCY_MOBILE=62751321
+SCHOOL_ABBR=thu
+USER_AGENT=Go-http-client/1.1
