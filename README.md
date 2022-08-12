@@ -32,7 +32,7 @@
     [thu-checkin]
     SECRET_BACKEND=使用 keyring 还是 1Password CLI "op"，对应值分别为 keyring 和 onepwd
     ONEPWD_NAME=如果使用 1Password CLI，电子身份服务系统密码对应的项名
-    JUZHUDI=你所在的城市
+    RESIDENCE=你所在的城市
     EMERGENCY_NAME=你的紧急联系人
     EMERGENCY_RELATION=紧急联系人和你的关系
     EMERGENCY_MOBILE=紧急联系人的电话
