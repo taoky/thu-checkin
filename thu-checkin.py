@@ -42,7 +42,7 @@ emergency_mobile = data["EMERGENCY_MOBILE"]
 school_abbr = data["SCHOOL_ABBR"]
 user_agent = data.get(
     "USER_AGENT",
-    "Mozilla/5.0 (X11; Linux x86_64; rv:103.0) Gecko/20100101 Firefox/103.0",
+    "Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/109.0",
 )
 
 CAS_LOGIN_URL = f"https://passport.{school_abbr}.edu.cn/login"
@@ -104,14 +104,10 @@ def checkin(s: requests.Session) -> bool:
     payload = {
         "_token": parse_token(r.text),
         "juzhudi": juzhudi,
-        "body_condition": "1",
+        "q_0": "良好",  # Change this value according to your actual situation
         "body_condition_detail": "",
-        "has_fever": "0",
-        "last_touch_sars": "0",
-        "last_touch_sars_date": "",
-        "last_touch_sars_detail": "",
-        "is_danger": "0",
-        "is_goto_danger": "0",
+        "q_2": "",
+        "q_3": "",
         "jinji_lxr": emergency_name,
         "jinji_guanxi": emergency_relation,
         "jiji_mobile": emergency_mobile,
